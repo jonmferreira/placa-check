@@ -144,6 +144,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="motor"
                     android:textColor="#90A4AE"
                     android:textSize="14sp" />
@@ -165,6 +167,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="chassi"
                     android:textColor="#90A4AE"
                     android:textSize="14sp" />
