@@ -1,0 +1,19 @@
+*.iml
+.gradle/
+local.properties
+.idea/
+.DS_Store
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.keystore
+!debug.keystore
+
+# produção aux do vídeo demo (mockup/playwright/ffmpeg) — não faz parte do app Android
+/demo-video/
+
+# docs de negócio internos — NÃO vão pro git (ficam em placa-check-docs-internos/)
+/docs/

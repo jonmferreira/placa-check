@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#11151A">
+
+    <!-- Viewfinder pequeno (~20% da tela) com alvo e botão de config -->
+    <FrameLayout
+        android:id="@+id/topo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/alvo"
+            android:layout_width="240dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:background="@drawable/alvo" />
+
+        <Button
+            android:id="@+id/config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:minWidth="0dp"
+            android:text="⚙"
+            android:textSize="18sp" />
+    </FrameLayout>
+
+    <!-- Painel de status (~80%) -->
+    <LinearLayout
+        android:id="@+id/painel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:orientation="vertical"
+        android:background="#1E2A30"
+        android:padding="18dp">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aponte para a placa da MOTO"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:text="motor"
+                    android:textColor="#90A4AE"
+                    android:textSize="20sp"
+                    android:paddingEnd="16dp" />
+
+                <TextView
+                    android:id="@+id/valorMoto"
+                    android:text="—"
+                    android:fontFamily="monospace"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/pctMoto"
+                    android:text=""
+                    android:textColor="#80CBC4"
+                    android:textSize="18sp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="8dp" />
+
+                <Button
+                    android:id="@+id/refazerMoto"
+                    android:text="↻"
+                    android:textSize="18sp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingHorizontal="14dp" />
+            </TableRow>
+
+            <TableRow android:gravity="center_vertical">
+
+                <TextView
+                    android:text="chassi"
+                    android:textColor="#90A4AE"
+                    android:textSize="20sp"
+                    android:paddingEnd="16dp" />
+
+                <TextView
+                    android:id="@+id/valorChassi"
+                    android:text="—"
+                    android:fontFamily="monospace"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/pctChassi"
+                    android:text=""
+                    android:textColor="#80CBC4"
+                    android:textSize="18sp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="8dp" />
+
+                <Button
+                    android:id="@+id/refazerChassi"
+                    android:text="↻"
+                    android:textSize="18sp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingHorizontal="14dp" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- Fotos lado a lado (zoom na placa), aparecem só no resultado -->
+        <LinearLayout
+            android:id="@+id/fotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="motor"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imgMoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:scaleType="fitCenter"
+                    android:background="#0D1114"
+                    android:contentDescription="foto da placa da moto" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="chassi"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imgChassi"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:scaleType="fitCenter"
+                    android:background="#0D1114"
+                    android:contentDescription="foto da placa do chassi" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textColor="#CFD8DC"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/salvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Salvar análise"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
